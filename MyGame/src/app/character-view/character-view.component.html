@@ -1,1 +1,13 @@
-<p>character-view works!</p>
+<!--<app-hero-card [hero]="hero" (selected)="onSelected($event)"></app-hero-card>-->
+<div class="fade-background" [ngClass]="{'active': HeroChoose }">
+  <div class="characters-menu">
+    <div class="character" (click)="chooseHero(hero)" *ngFor="let hero of heroes" (mousedown)="scrollSnap()">
+      <app-card [type]="'card'" [stats]="hero.stats" [img]="'/assets/characters/' + hero.img" [heroName]="hero.name" [heroDetails]="hero.details"></app-card>
+    </div>
+  </div>
+</div>
+
+<div class="hero-panel">
+  <app-card [type]="'panel'"  *ngIf="HeroChoose" [stats]="HeroChoose.stats" [img]="'/assets/characters/' + HeroChoose.img" [heroName]="HeroChoose.name" [heroDetails]="HeroChoose.details" ></app-card>
+</div>
+

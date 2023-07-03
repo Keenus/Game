@@ -1,0 +1,29 @@
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  button{
+    width: 150px;
+    height: 50px;
+    border: none;
+    box-shadow: 0 0 5px 5px #000;
+    color: #fff;
+    background: url("../../../assets/images/button-bg.jpg") no-repeat;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 0 10px;
+    margin: 2px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    transition: ease-in-out .2s;
+    &:nth-child(even) {
+      background: url("../../../assets/images/button-bg.jpg") bottom right no-repeat;
+    }
+    &:hover{
+      background: rgba(0, 0, 0, 0.8);
+      transform: translate(0, -2px);
+    }
+  }
+
+}

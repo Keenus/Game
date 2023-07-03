@@ -1,0 +1,116 @@
+
+app-hero-card{
+  max-width: 300px;
+  overflow: hidden;
+}
+.fade-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.57);
+  z-index: 123;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fade{
+  0%{
+    transform: scale(0.4);
+    opacity: 0.4;
+  }
+  100%{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.characters-menu{
+  height: 500px;
+  overflow: auto;
+  display: flex;
+  gap: 120px;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-type: x proximity;
+}
+.active{
+  display: none;
+}
+
+
+//.active{
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  width: unset;
+//  height: unset;
+//  display: flex;
+//  justify-content: unset;
+//  align-items: unset;
+//  transition: .3s ease-in-out;
+//  animation: fade 1s ease-in-out forwards;
+//  filter: brightness(0.7);
+//  &:hover{
+//    filter:brightness(1);
+//    scale: 1;
+//  }
+// .characters-menu{
+//    display: flex;
+//    justify-content: left;
+//    align-items: unset;
+//   padding: 0;
+//   .character{
+//     display: flex;
+//     position: absolute;
+//     width: 540px;
+//     top: -10%;
+//     left: -70%;
+//     height: 240px;
+//     align-items: center;
+//     app-hero-card{
+//       height: 240px;
+//       transform: scale(0.5);
+//       overflow: hidden ;
+//       border-radius: 12px;
+//       box-shadow: 0 0 5px 5px $black;
+//     }
+//     &:not(.choosen){
+//       display:none;
+//     }
+//     .hero-stats{
+//       height: 140px;
+//        width: 540px;
+//        display: flex;
+//        flex-direction: column;
+//        justify-content: space-between;
+//        align-items: center;
+//        padding: 0;
+//        margin: 0;
+//       flex-wrap: wrap;
+//       .stat{
+//          width: 50%;
+//          height: 50px;
+//          display: flex;
+//          justify-content: center;
+//          align-items: center;
+//          border: 3px solid $transparent-white;
+//          border-bottom: none;
+//          border-radius: 2px 2px;
+//          box-shadow: 0 0 5px 5px $brown;
+//          background: $transparent-black;
+//          color: $white;
+//          font-size: 2rem;
+//          text-shadow: 0 0 5px $black;
+//          span{
+//            font-size: 1rem;
+//            display: flex;
+//            align-items: center;
+//          }
+//       }
+//     }
+//   }
+// }
+//}

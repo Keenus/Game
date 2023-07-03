@@ -8,6 +8,9 @@ import { MenuComponent } from './menu/menu.component';
 import { GameViewComponent } from './game-view/game-view.component';
 import { CharacterViewComponent } from './character-view/character-view.component';
 import { QuestsViewComponent } from './quests-view/quests-view.component';
+import { FooterComponent } from './footer/footer.component';
+import { CardComponent } from './card/card.component';
+import { MapLayoutComponent } from './game-view/map-layout/map-layout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { QuestsViewComponent } from './quests-view/quests-view.component';
     MenuComponent,
     GameViewComponent,
     CharacterViewComponent,
-    QuestsViewComponent
+    QuestsViewComponent,
+    FooterComponent,
+    CardComponent,
+    MapLayoutComponent
   ],
   imports: [
     BrowserModule,
