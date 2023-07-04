@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainViewComponent } from './main-view/main-view.component';
@@ -10,7 +9,6 @@ import { CharacterViewComponent } from './character-view/character-view.componen
 import { QuestsViewComponent } from './quests-view/quests-view.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
-import { MapLayoutComponent } from './game-view/map-layout/map-layout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +20,6 @@ import { MapLayoutComponent } from './game-view/map-layout/map-layout.component'
     QuestsViewComponent,
     FooterComponent,
     CardComponent,
-    MapLayoutComponent
   ],
   imports: [
     BrowserModule,

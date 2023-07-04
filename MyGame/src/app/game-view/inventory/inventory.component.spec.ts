@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapLayoutComponent } from './map-layout.component';
+import { InventoryComponent } from './inventory.component';
 
-describe('MapLayoutComponent', () => {
-  let component: MapLayoutComponent;
-  let fixture: ComponentFixture<MapLayoutComponent>;
+describe('InventoryComponent', () => {
+  let component: InventoryComponent;
+  let fixture: ComponentFixture<InventoryComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [MapLayoutComponent]
+      declarations: [InventoryComponent]
     });
-    fixture = TestBed.createComponent(MapLayoutComponent);
+    fixture = TestBed.createComponent(InventoryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

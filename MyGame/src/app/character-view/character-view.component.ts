@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./character-view.component.scss']
 })
 export class CharacterViewComponent {
+
+
+
   heroes = [
     { name: 'Knight',
       img: 'woj.png',

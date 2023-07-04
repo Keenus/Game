@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class GameViewComponent {
 
+  menuItems = [
+    {name:'inventory', path: '/game/inventory'},
+    {name:'skills', path: '/game/skills'},
+    {name:'quests', path: '/game/quests'},
+    {name:'arena', path: '/game/arena'},
+    {name:'shop', path: '/game/shop'}
+  ]
+
 }

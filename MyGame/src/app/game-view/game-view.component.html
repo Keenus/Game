@@ -1,7 +1,22 @@
 <div class="map">
   <div class="map-container">
-    <app-character-view></app-character-view>
-    <app-map-layout></app-map-layout>
+    <div class="header">
+      <app-character-view></app-character-view>
+      <app-character-view></app-character-view>
+      <app-character-view></app-character-view>
+    </div>
+    <div class="container" >
+      <div class="menu">
+        <button class="menu__item" *ngFor="let item of menuItems" routerLinkActive="active" routerLink="{{item.path}}">
+          {{item.name.toUpperCase()}}
+        </button>
+      </div>
 
+      <div class="game-container">
+      <div class="container">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    </div>
   </div>
 </div>
