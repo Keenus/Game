@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-map-layout',
@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
 })
 export class MapLayoutComponent {
 
+  @Input() path: string = '';
+
+
+
   menuItems = [
- 
+
     {
       name:'inventory',
       path: 'inventory'

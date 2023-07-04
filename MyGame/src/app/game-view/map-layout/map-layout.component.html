@@ -1,6 +1,6 @@
 <div class="menu">
 
-  <button class="menu__item" *ngFor="let item of menuItems" routerLink="/{{item.path}}">
+  <button class="menu__item" *ngFor="let item of menuItems" routerLink="/{{item.path}}" (click)="path=item.path">
   {{item.name.toUpperCase()}}
   </button>
 
