@@ -1,1 +1,33 @@
-<p>tavern works!</p>
+
+<!--<div class="container">-->
+<!--  <h1>404</h1>-->
+<!--  <p>Page not found</p>-->
+<!--</div>-->
+
+<div class="content">
+
+  <div class="newQuests">
+    <div class="quest" *ngFor="let quest of newQuests">
+      <h3>{{quest.name}}</h3>
+      <p>{{quest.description}}</p>
+      <div class="requirements">
+        <h4>Requirements:</h4>
+        <div class="requirement">
+        <span class="single-req" *ngFor="let req of quest.requirements | keyvalue">
+          <span>{{req.key}}: </span>
+          <span>{{req.value}}</span>
+        </span>
+        </div>
+      </div>
+      <div class="info">
+        <span>{{quest.time}} minutes</span>
+        <span>{{quest.reward}} gold </span>
+        <span>{{quest.exp}} exp</span>
+      </div>
+      <div class="accept-button">
+        <button (click)="acceptQuest(quest)">Accept</button>
+      </div>
+    </div>
+  </div>
+
+</div>

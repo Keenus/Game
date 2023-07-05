@@ -7,7 +7,7 @@ import {QuestsViewComponent} from "./quests-view/quests-view.component";
 
 const routes: Routes = [
   {
-    path:  'home',
+    path:  '',
     component: MainViewComponent
   },
   {

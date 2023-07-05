@@ -1,1 +1,12 @@
-<p>arena works!</p>
+<div class="container">
+
+  <div>
+    <h1>Chose enemy too beat</h1>
+  </div>
+
+  <div class="enemies">
+    <div class="enemy" *ngFor="let item of enemyList" (click)="choosenEnemy = item" >
+      {{item.name}}
+    </div>
+  </div>
+</div>
