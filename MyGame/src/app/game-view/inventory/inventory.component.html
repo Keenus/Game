@@ -1,1 +1,19 @@
-<p>inventory works!</p>
+<div class="container">
+
+  <div class="content">
+
+    <div class="left">
+      <div class="item" *ngFor="let place of armoryParts" id="{{place.name}}"></div>
+    </div>
+
+    <div class="right">
+      <div class="inventory-menu">
+        <button class="single-part" *ngFor="let part of armoryParts">{{part.name}}</button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

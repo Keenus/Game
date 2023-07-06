@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 1112px;
+  height: 600px;
+  border-radius: 6px;
+  color: #fff;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:100%;
+    height: 100%;
+
+
+    .left{
+      margin-left: 5%;
+      width:30%;
+      background: url('../../../assets/images/inventory.png') top right no-repeat;
+      background-size: cover;
+      position: relative;
+      div.item{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: rgba(30, 24, 24, 0.8);
+        border: 1px solid #fff;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: ease-in-out .2s;
+        &:hover{
+          background: rgba(0, 0, 0, 0.8);
+        }
+      }
+      #Sword{
+        top: 50%;
+        right: 10%;
+      }
+      #Shield{
+        top: 50%;
+        left: 10%;
+      }
+      #Helmet{
+        top: 5%;
+        left: 60%;
+      }
+      #Armor{
+        top: 20%;
+        left: 40%;
+      }
+      #Boots{
+        bottom: 5%;
+        left: 40%;
+      }
+      #Gloves{
+        top: 30%;
+        left: 10%;
+      }
+
+    }
+    .right{
+      width:60%;
+      height: 100%;
+      background: rgba(30, 24, 24, 0.8);
+      position: relative;
+      display: flex;
+      .inventory-menu{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        button{
+          width: 150px;
+          height: 100px;
+          font-size: 1.5rem;
+          background: rgba(30, 24, 24, 0.8);
+          border: none;
+          box-shadow: 0 0 5px 5px #000;
+          color: #fff;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: ease-in-out .2s;
+          &:hover{
+            color: #c0a617;
+            background: rgba(0, 0, 0, 0.8);
+            transform: translate(0, -2px);
+          }
+        }
+      }
+
+    }
+
+  }
+}

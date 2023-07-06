@@ -2,22 +2,114 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
-  height: 100%;
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: 'Press Start 2P', cursive;
+  background: url('../../../assets/images/arena.jpg') top right no-repeat;
+  background-size: cover;
+  width: 1112px;
+  height: 600px;
+  border-radius: 6px;
   color: #fff;
-  div{
+  .content{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    h1{
-      font-size: 1.5rem;
-      margin: 0;
-      padding: 0;
-      text-align: center;
+    width: 400px;
+    height: 100%;
+    background: rgba(30, 24, 24, 0.8);
+    .enemies {
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: rgba(30, 24, 24, 0.8);
+        border-radius: 10px;
+      }
+
+      .name {
+        margin: 0;
+        padding: 10px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: 'Press Start 2P', cursive;
+        color: #c0a617;
+        text-transform: uppercase;
+      }
+
+      .enemy {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 0 10px 5px 10px;
+        position: relative;
+        border-bottom: 1px solid #ffffff;
+        .stats {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .stat {
+            display: flex;
+            flex-basis: 35%;
+
+            span {
+              margin: 0;
+              padding: 0 5px;
+              font-size: 1rem;
+              color: #fff;
+              font-weight: 300;
+
+              &:first-child {
+                width: 90px;
+              }
+
+              &:last-child {
+                color: #c0a617;
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+
+
+        .fight-button {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          margin: 10px;
+          padding: 5px 10px;
+          font-size: 1rem;
+          font-weight: bold;
+          font-family: 'Press Start 2P', cursive;
+          color: #fff;
+          text-transform: uppercase;
+          background: rgba(30, 24, 24, 0.8);
+          border-radius: 6px;
+          box-shadow: 0 0 5px 5px #000;
+          cursor: pointer;
+
+          &:hover {
+            color: #c0a617;
+          }
+        }
+      }
+    }
+    .rules{
+      font-size: 1rem;
+      font-weight: 300;
+      padding: 5px 10px;
+
     }
   }
+
 }

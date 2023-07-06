@@ -1,12 +1,24 @@
 <div class="container">
 
-  <div>
-    <h1>Chose enemy too beat</h1>
-  </div>
-
-  <div class="enemies">
-    <div class="enemy" *ngFor="let item of enemyList" (click)="choosenEnemy = item" >
-      {{item.name}}
+  <div class="content">
+    <h2>Chose your opponent</h2>
+    <div class="enemies">
+    <div class="enemy" *ngFor="let item of opponentList" (click)="choosenEnemy = item" >
+      <h3 class="name">{{item.name.toUpperCase()}}</h3>
+        <div class="stats" >
+          <div class="stat" *ngFor="let stat of item.stats | keyvalue">
+          <span>{{stat.key}}:</span>
+          <span> {{stat.value}}</span>
+        </div>
+        </div>
+      <button class="fight-button" (click)="startFight(item.name)">Fight</button>
     </div>
   </div>
+    <div class="rules">
+      <p>
+        You can start the fight by clicking on the fight button.
+        One fight costs 10 energy points. You can get energy points by sleeping or eating.
+      </p>
+    </div>
+</div>
 </div>
