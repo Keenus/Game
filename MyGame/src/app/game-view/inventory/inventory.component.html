@@ -10,7 +10,13 @@
       <div class="inventory-menu">
         <button class="single-part" *ngFor="let part of armoryParts">{{part.name}}</button>
       </div>
-
+      <div class="items">
+      <div class="inventory">
+        <div class="item" *ngFor="let item of inventory" id="{{item.name}}" [ngStyle]="{'background-image': 'url(' + item.path + ')'}">
+          <span>{{item.name}}</span>
+        </div>
+        </div>
+    </div>
 
     </div>
 
