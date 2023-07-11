@@ -79,8 +79,40 @@ export class ArenaComponent {
     console.log(this.opponentList);
   }
 
+  getHighestStat(enemy:any) {
+    let highestStat = 0;
+    let highestStatName = '';
+    Object.keys(enemy.stats).forEach((stat:any) => {
+      if (enemy.stats[stat] > highestStat) {
+        highestStat = enemy.stats[stat];
+        highestStatName = stat;
+      }
+    })
+    console.log(highestStatName,':',highestStat)
+    return highestStatName && highestStat;
+  }
+
+
+  getOpponentStats(enemy:any) {
+    let level = enemy.stats.level;
+    let stats = 0;
+    function keyValue(obj:any) {
+        return Object.keys(obj).map((key) => obj[key]);
+    }
+    console.log(enemy.stats);
+    console.log(keyValue(enemy.stats));
+
+     keyValue(enemy.stats).forEach((stat:any) => {
+       console.log(stat)
+        stats += stat * level;
+     })
+    console.log(stats);
+  }
+
   startFight(enemy:any) {
     this.choosenEnemy = enemy
-    console.log('start fight with: ' + this.choosenEnemy);
+    console.log('start fight with: ' + this.choosenEnemy.name);
+    this.getOpponentStats(this.choosenEnemy)
+    this.getHighestStat(this.choosenEnemy)
   }
 }

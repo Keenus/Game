@@ -3,17 +3,22 @@
   <div class="content">
 
     <div class="left">
-      <div class="item" *ngFor="let place of armoryParts" id="{{place.name}}"></div>
+      <div class="item" *ngFor="let place of armoryParts" id="{{place.name}}" (click)="filterInventory(place.name)"></div>
     </div>
 
     <div class="right">
       <div class="inventory-menu">
-        <button class="single-part" *ngFor="let part of armoryParts">{{part.name}}</button>
+        <button class="single-part" *ngFor="let part of armoryParts" (click)="filterInventory(part.name)">{{part.name}}</button>
       </div>
       <div class="items">
       <div class="inventory">
-        <div class="item" *ngFor="let item of inventory" id="{{item.name}}" [ngStyle]="{'background-image': 'url(' + item.path + ')'}">
-          <span>{{item.name}}</span>
+        <div class="item" *ngFor="let item of filteredInventory" id="{{item.name}}" [ngStyle]="{'background-image': 'url(' + item.path + ')'}">
+          <span class="name">{{item.name}}</span>
+          <div class="stats">
+            <span *ngFor="let stat of item.stats | keyvalue">
+              <span>{{stat.key}}: {{stat.value}}</span>
+            </span>
+          </div>
         </div>
         </div>
     </div>

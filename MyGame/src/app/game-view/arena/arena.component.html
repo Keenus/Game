@@ -1,7 +1,9 @@
 <div class="container">
 
   <div class="content">
-    <h2>Chose your opponent</h2>
+    <div class="rules">
+      <h2>Chose your opponent</h2>
+    </div>
     <div class="enemies">
     <div class="enemy" *ngFor="let item of opponentList" (click)="choosenEnemy = item" >
       <h3 class="name">{{item.name.toUpperCase()}}</h3>
@@ -11,7 +13,7 @@
           <span> {{stat.value}}</span>
         </div>
         </div>
-      <button class="fight-button" (click)="startFight(item.name)">Fight</button>
+      <button class="fight-button" (click)="startFight(item)">Fight</button>
     </div>
   </div>
     <div class="rules">
