@@ -1,35 +1,28 @@
+
 <div class="content">
 
-  <div class="questsList">
-    <div class="activeQuests">
-      <h1>Active Quests</h1>
-      <ul>
-        <li>qeqdqqdqdw</li>
-        <li>afasdfgdfgd</li>
-        <li>jghjgjghjghj</li>
-        <li>hdfhdhdfh</li>
-      </ul>
+  <div class="newQuests">
+    <div class="quest" *ngFor="let quest of newQuests">
+      <h3>{{quest.name}}</h3>
+      <p>{{quest.description}}</p>
+      <div class="requirements">
+        <h4>Requirements:</h4>
+        <div class="requirement">
+        <span class="single-req" *ngFor="let req of quest.requirements | keyvalue">
+          <span>{{req.key}}: </span>
+          <span>{{req.value}}</span>
+        </span>
+        </div>
+      </div>
+      <div class="info">
+        <span>{{quest.time}} minutes</span>
+        <span>{{quest.reward}} gold </span>
+        <span>{{quest.exp}} exp</span>
+      </div>
+      <div class="accept-button">
+        <button (click)="acceptQuest(quest)">Accept</button>
+      </div>
     </div>
-
-    <div class="completedQuests">
-      <h1>Completed Quests</h1>
-      <ul>
-        <li>qeqdqqdqdw</li>
-        <li>afasdfgdfgd</li>
-        <li>jghjgjghjghj</li>
-        <li>hdfhdhdfh</li>
-      </ul>
-    </div>
-
-    <div class="failedQuests">
-      <h1>Failed Quests</h1>
-      <ul>
-        <li>qeqdqqdqdw</li>
-        <li>afasdfgdfgd</li>
-        <li>jghjgjghjghj</li>
-        <li>hdfhdhdfh</li>
-      </ul>
-    </div>
-
   </div>
+
 </div>

@@ -7,58 +7,35 @@ import { Component } from '@angular/core';
 })
 export class TavernComponent {
 
-  newQuests = [
+  foodItems: any[] = [
     {
-      name:'Dwarf revenge',
-      description: 'Dwarf Carl is looking for help to get revenge on the goblins that killed his family. He is offering a reward of 100 gold pieces.',
-      requirements: {
-        level: 1,
-        strength: 1,
-        agility: 1,
-      },
-      time:'30',
-      reward: '100',
-      exp: '100'
+      name: 'Bread',
+      price: 10,
+      image: 'assets/items/bread.png',
+      health: 15,
     },
-     {
-      name:'Peoples champion',
-      description: 'The people of the town are looking for help them with a orc problem. They are offering a reward of 200 gold pieces.',
-      requirements: {
-        level: 2,
-        strength: 5,
-        agility: 2,
-      },
-      time:'60',
-      reward: '200',
-      exp: '200'
+    {
+      name: 'Pork',
+      price: 20,
+      image: 'assets/items/pork.png',
+      health: 25,
     },
-      {
-      name:'people kill people',
-      description: 'Town is offering a reward of 200 gold pieces for kill the bandits that are terrorizing the town.',
-      requirements: {
-        level: 2,
-        strength: 2,
-        agility: 5,
-      },
-      time:'60',
-      reward: '200',
-      exp: '200'
+    {
+      name: 'Chicken',
+      price: 15,
+      image: 'assets/items/chicken.png',
+      health: 20,
     },
-      {
-      name:'Dragon slayer',
-      description: 'Farmers are offering a reward of 400 gold pieces for kill the dragon that is eating their beef cattle.',
-      requirements: {
-        level: 3,
-        strength: 5,
-        agility: 5,
-      },
-      time:'time',
-      reward: 'reward4',
-      exp: '400'
-    },
-]
+    {
+      name: 'Beer',
+      price: 5,
+      image: 'assets/items/beer.png',
+      health: 10,
+    }
+  ]
 
-  acceptQuest(quest: any) {
-    console.log(quest)
+
+  buyItem(item: any) {
+    console.log(item)
   }
 }
