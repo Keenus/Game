@@ -38,4 +38,16 @@ export class TavernComponent {
   buyItem(item: any) {
     console.log(item)
   }
+
+  Eat(health: number, cost: number) {
+    console.log(health, cost)
+  }
+
+  sleep(hours: number) {
+    this.makeTimePass(hours);
+  }
+
+  makeTimePass(hours: number) {
+    console.log(hours);
+  }
 }
