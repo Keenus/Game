@@ -1,13 +1,15 @@
 .container{
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: absolute;
+  left: 0;
+  top:0;
   font-size: 1.2rem;
   font-weight: bold;
   background: url('../../../assets/images/arena.jpg') top right no-repeat;
   background-size: cover;
-  width: 1112px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   border-radius: 6px;
   color: #fff;
   .content{
@@ -102,9 +104,16 @@
           border-radius: 6px;
           box-shadow: 0 0 5px 5px #000;
           cursor: pointer;
-
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          gap: 2px;
           &:hover {
             color: #c0a617;
+          }
+          img{
+            max-height: 20px;
           }
         }
       }
@@ -116,7 +125,28 @@
       font-weight: 300;
       padding: 5px 10px;
       background: rgba(14, 12, 12, 0.8);
+      .mobile{
+        display: none;
+      }
     }
+
   }
 
+}
+@media (max-width: 768px){
+  .content {
+    max-width: 100%;
+  }
+  .rules{
+    .desktop{
+      span{
+        display: none;
+      }
+    }
+  }
+  .fight-button{
+    span{
+      display: none;
+    }
+  }
 }

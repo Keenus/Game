@@ -13,12 +13,15 @@
           <span> {{stat.value}}</span>
         </div>
         </div>
-      <button class="fight-button" (click)="startFight(item)">Fight</button>
+      <button class="fight-button" (click)="startFight(item)">
+        <span>Fight</span>
+        <img src="/assets/images/fight_button.png" alt="X">
+      </button>
     </div>
   </div>
     <div class="rules">
-      <p>
-        You can start the fight by clicking on the fight button.
+      <p class="desktop">
+        <span>You can start the fight by clicking on the fight button.</span>
         One fight costs 10 energy points. You can get energy points by sleeping or eating.
       </p>
     </div>

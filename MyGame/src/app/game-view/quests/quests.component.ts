@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class QuestsComponent {
 
+  descToShow: any;
+
   newQuests = [
     {
       name:'Dwarf revenge',
@@ -58,8 +60,14 @@ export class QuestsComponent {
     },
   ]
 
+
   acceptQuest(quest: any) {
     console.log(quest)
   }
 
+  showDescOnMobile(item:any) {
+    let a = document.getElementsByClassName(item.name);
+    this.descToShow = item.name;
+    console.log(a)
+  }
 }

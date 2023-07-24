@@ -4,7 +4,8 @@
   <div class="newQuests">
     <div class="quest" *ngFor="let quest of newQuests">
       <h3>{{quest.name}}</h3>
-      <p>{{quest.description}}</p>
+      <p [ngClass]="{'showDesc':quest.name === descToShow}">{{quest.description}}<span class="mobile" [ngClass]="{'hide':quest.name === descToShow}" (click)="showDescOnMobile(quest)">...</span></p>
+
       <div class="requirements">
         <h4>Requirements:</h4>
         <div class="requirement">
