@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserServiceService} from "../../../services/user-service.service";
 
 @Component({
   selector: 'app-tavern',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./tavern.component.scss']
 })
 export class TavernComponent {
+
+  constructor(private UserService : UserServiceService) { }
 
   foodItems: any[] = [
     {
@@ -35,6 +38,7 @@ export class TavernComponent {
   ]
 
 
+
   buyItem(item: any) {
     console.log(item)
   }
@@ -50,4 +54,11 @@ export class TavernComponent {
   makeTimePass(hours: number) {
     console.log(hours);
   }
+  ngOnInit() {
+    this.UserService.user
+      .subscribe((value) => {
+        console.log('user', value);
+      })
+  }
+
 }

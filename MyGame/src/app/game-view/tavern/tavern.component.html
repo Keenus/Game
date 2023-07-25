@@ -1,6 +1,7 @@
 
 <div class="content">
 
+  <div class="content-items">
     <div class="element eat">
       <h3>What do you want to eat</h3>
       <div class="items">
@@ -23,22 +24,26 @@
 
     </div>
     <div class="element sleep">
-      <h3>How long do you want to rest</h3>
+      <h3>how long would you like to rest</h3>
       <div class="items">
       <button (click)="sleep(1)">
         <h4>1 hour</h4>
+        <span>15% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
       </button>
       <button (click)="sleep(3)">
         <h4>3 hours</h4>
+        <span>50% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
       </button>
       <button (click)="sleep(8)">
         <h4>8 hours</h4>
+        <span>100% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
       </button>
       </div>
     </div>
+  </div>
 </div>
 
 

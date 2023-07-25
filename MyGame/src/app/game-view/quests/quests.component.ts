@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-
+import {UserServiceService} from "../../../services/user-service.service";
 @Component({
   selector: 'app-quests',
   templateUrl: './quests.component.html',
   styleUrls: ['./quests.component.scss']
 })
 export class QuestsComponent {
+
+  constructor(private UserService : UserServiceService) { }
 
   descToShow: any;
 
@@ -18,7 +20,7 @@ export class QuestsComponent {
         strength: 1,
         agility: 1,
       },
-      time:'30',
+      time:1,
       reward: '100',
       exp: '100'
     },
@@ -30,7 +32,7 @@ export class QuestsComponent {
         strength: 5,
         agility: 2,
       },
-      time:'60',
+      time:2,
       reward: '200',
       exp: '200'
     },
@@ -42,7 +44,7 @@ export class QuestsComponent {
         strength: 2,
         agility: 5,
       },
-      time:'60',
+      time:2,
       reward: '200',
       exp: '200'
     },
@@ -54,8 +56,8 @@ export class QuestsComponent {
         strength: 5,
         agility: 5,
       },
-      time:'time',
-      reward: 'reward4',
+      time:5,
+      reward: '400',
       exp: '400'
     },
   ]
@@ -63,6 +65,17 @@ export class QuestsComponent {
 
   acceptQuest(quest: any) {
     console.log(quest)
+    this.makeUserBusy(quest.time);
+    this.UserService.action.next(quest.name);
+  }
+
+  makeUserBusy(time: number) {
+    this.UserService.actionTime.next(time);
+    this.UserService.user.next(true);
+    setTimeout(() => {
+      this.UserService.user.next(false);
+    }
+    , time * 60000)
   }
 
   showDescOnMobile(item:any) {
@@ -70,4 +83,10 @@ export class QuestsComponent {
     this.descToShow = item.name;
     console.log(a)
   }
+
+  ngOnInit() {
+    this.UserService.user.subscribe((value) => {})
+  }
+
 }
+

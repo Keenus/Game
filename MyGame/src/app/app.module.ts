@@ -9,6 +9,8 @@ import { CharacterViewComponent } from './character-view/character-view.componen
 import { QuestsViewComponent } from './quests-view/quests-view.component';
 import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -20,11 +22,13 @@ import { CardComponent } from './card/card.component';
     QuestsViewComponent,
     FooterComponent,
     CardComponent,
+    ProgressBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatProgressBarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

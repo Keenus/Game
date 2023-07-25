@@ -24,15 +24,16 @@
     .quest{
       position: relative;
       display: flex;
+      justify-content: space-between;
       flex-direction: column;
       margin: 15px;
-      flex-basis: 30%;
       background: rgba(30, 24, 24, 0.8);
       border-radius: 6px;
       box-shadow: 0 0 5px 5px #000;
       padding: 10px 0 0;
       gap: 10px;
       max-height: 300px;
+      flex: 33%;
       h3{
         margin: 0;
         padding: 0 5px;
@@ -80,18 +81,23 @@
           }
         }
       }
+
       .info{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        padding:5px 10px;
+        justify-content: space-around;
+        padding:5px;
         border-top: 1px solid #fff;
         width: 50%;
         color:#c0a617;
         background: rgb(30, 24, 24);
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-weight: bold;
-        border-radius: 6px 6px 0 0;
+        border-radius: 0 6px 0 0;
+        span{
+          flex: 1 1 50%;
+          display: flex;
+        }
       }
       .accept-button{
         position: absolute;
@@ -117,10 +123,13 @@
     }
   }
 }
-.media{
+.mobile{
   display: none;
 }
 @media (max-width: 768px) {
+  .mobile{
+    display: block;
+  }
   p{
     max-height: 20px;
     overflow: hidden;
