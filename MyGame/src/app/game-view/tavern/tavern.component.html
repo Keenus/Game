@@ -5,20 +5,26 @@
     <div class="element eat">
       <h3>What do you want to eat</h3>
       <div class="items">
-        <button (click)="Eat(5,5)">
-          <h4>Bread</h4>
-          <span>5% health</span>
-          <span>5$</span>
+        <button class="bread" (click)="Eat(5,5)">
+          <span class="desc">
+            <h4>Bread</h4>
+              <span>15% health</span>
+              <span>5$</span>
+          </span>
         </button>
-        <button (click)="Eat(15,10)">
+        <button class="soup" (click)="Eat(15,10)">
+          <span class="desc">
           <h4>Soup</h4>
-          <span>15% health</span>
+          <span>50% health</span>
           <span>10$</span>
+          </span>
         </button>
-        <button (click)="Eat(25,15)">
+        <button class="steak" (click)="Eat(25,15)">
+          <span class="desc">
           <h4>Steak</h4>
-          <span>25% health</span>
+          <span>100% health</span>
           <span>15$</span>
+          </span>
         </button>
       </div>
 
@@ -26,20 +32,26 @@
     <div class="element sleep">
       <h3>how long would you like to rest</h3>
       <div class="items">
-      <button (click)="sleep(1)">
+      <button class="sleep" (click)="sleep(1)">
+        <span class="desc">
         <h4>1 hour</h4>
         <span>15% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
+        </span>
       </button>
-      <button (click)="sleep(3)">
+      <button class="sleep" (click)="sleep(3)">
+        <span class="desc">
         <h4>3 hours</h4>
         <span>50% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
+        </span>
       </button>
-      <button (click)="sleep(8)">
+      <button class="sleep" (click)="sleep(8)">
+        <span class="desc">
         <h4>8 hours</h4>
         <span>100% health</span>
         <img src="/assets/images/sleepIcon.png" alt="">
+        </span>
       </button>
       </div>
     </div>

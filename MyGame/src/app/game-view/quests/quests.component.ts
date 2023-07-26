@@ -64,9 +64,10 @@ export class QuestsComponent {
 
 
   acceptQuest(quest: any) {
-    console.log(quest)
-    this.makeUserBusy(quest.time);
-    this.UserService.action.next(quest.name);
+    if(this.UserService.user.getValue() === false) {
+      this.makeUserBusy(quest.time);
+      this.UserService.action.next(quest.name);
+    }
   }
 
   makeUserBusy(time: number) {
