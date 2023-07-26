@@ -7,6 +7,7 @@ import {ShopComponent} from "./shop/shop.component";
 import { SkillsComponent } from './skills/skills.component';
 import { QuestsComponent } from './quests/quests.component';
 import { TavernComponent } from './tavern/tavern.component';
+import {AppModule} from "../app.module";
 
 
 @NgModule({
