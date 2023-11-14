@@ -55,9 +55,8 @@ export class TavernComponent {
     console.log(hours);
   }
   ngOnInit() {
-    this.UserService.user
+    this.UserService.userStats
       .subscribe((value) => {
-        console.log('user', value);
       })
   }
 

@@ -20,33 +20,31 @@ export class GameViewComponent {
     {name:'shop', path: '/game/shop'}
   ]
 
-  isUserBusy = false;
-  actionTime: number | undefined;
-  action = '';
+  isUserBusy: boolean = false;
+  action= {
+    name: 'none',
+    time: 0,
+    progress: 0
+   }
+
+  loadUserAction() {
+    this.UserService.userStats
+      .subscribe((value) => {
+        console.log(value.action)
+        this.isUserBusy = value.action.isBusy
+        this.action = {
+          name: value.action.busyAction,
+          time: value.action.busyActionTime,
+          progress: value.action.busyActionProgress
+        }
+      });
+  }
 
   ngOnInit() {
-    this.UserService.user
-      .subscribe((value) => {
-        this.isUserBusy = value;
-      });
-    this.UserService.actionTime.subscribe((value) => {
-      console.log(value, 'actionTime')
-      this.actionTime = value;
-    })
-    this.UserService.action.subscribe((value) => {
-      console.log(value, 'action')
-      this.action = value;
-    })
+    this.loadUserAction();
     }
 
   ngOnChanges() {
-    this.UserService.actionTime.subscribe((value) => {
-      console.log(value, 'actionTime')
-      this.actionTime = value;
-    })
-    this.UserService.action.subscribe((value) => {
-      console.log(value, 'action')
-      this.action = value;
-    })
+    this.loadUserAction();
   }
 }

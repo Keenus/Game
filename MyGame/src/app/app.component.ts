@@ -14,10 +14,18 @@ export class AppComponent {
 
   title = 'MyGame';
 
-  ngOnInit() {
-    this.UserService.user
+  loadUserAction() {
+    this.UserService.userStats
       .subscribe((value) => {
-        this.isUserBusy = value;
+        this.isUserBusy = value.action.isBusy
       });
   }
+
+  ngOnInit() {
+    this.loadUserAction();
+  }
+  ngOnChanges() {
+    this.loadUserAction();
+  }
+
 }

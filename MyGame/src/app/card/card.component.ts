@@ -24,7 +24,6 @@ export class CardComponent {
 
 
   ngOnInit(){
-    console.log(this.stats);
     this.statistics = this.stats;
   }
 

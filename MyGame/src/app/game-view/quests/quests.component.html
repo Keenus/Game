@@ -1,10 +1,12 @@
+<div class="quest-background"></div>
 
 <div class="content">
 
   <div class="newQuests">
-    <div class="quest" *ngFor="let quest of newQuests">
+
+    <div class="quest" *ngForOf="let quest of quests">
       <h3>{{quest.name}}</h3>
-      <p [ngClass]="{'showDesc':quest.name === descToShow}">{{quest.description}}<span class="mobile" [ngClass]="{'hide':quest.name === descToShow}" (click)="showDescOnMobile(quest)">...</span></p>
+      <p [ngClass]="{'showDesc':quest.name === descToShow}">{{quest.description}}<span *ngIf="descToShow != quest.name" [ngClass]="{'hide':quest.name === descToShow}" (click)="showDescOnMobile(quest)">?</span></p>
 
       <div class="requirements">
         <h4>Requirements:</h4>
@@ -24,6 +26,7 @@
         <button (click)="acceptQuest(quest)">Accept</button>
       </div>
     </div>
+
   </div>
 
 </div>

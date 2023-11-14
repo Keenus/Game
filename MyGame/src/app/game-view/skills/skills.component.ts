@@ -6,8 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent {
-  bufferValue: any;
-  mode: any;
-  progress: any;
 
 }

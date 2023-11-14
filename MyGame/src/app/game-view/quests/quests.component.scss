@@ -1,3 +1,14 @@
+.quest-background{
+  background: url("../../../assets/images/quests.webp")center 40% no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+  position: absolute;
+  left: 0;
+  top:0;
+  width: 100%;
+  height: 100%;
+}
+
 .content{
   overflow-y:auto ;
   box-sizing: border-box;
@@ -11,15 +22,16 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background: url("../../../assets/images/questBg.png") bottom center no-repeat;
+  background: url("../../../assets/images/quests.webp")center 40% no-repeat;
   background-size: cover;
   border-radius: 6px;
   .newQuests{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
+    width: 55%;
+    margin: 15vh auto 15vh;
+    padding: 2vh 0 5vh;
     flex-wrap: wrap;
     .quest{
       position: relative;
@@ -33,7 +45,6 @@
       padding: 10px 0 0;
       gap: 10px;
       max-height: 300px;
-      flex: 33%;
       h3{
         margin: 0;
         padding: 0 5px;
@@ -46,7 +57,7 @@
       }
       p{
         margin: 0;
-        padding: 5px 10px;
+        padding: 5px 50px 5px 10px;
         font-size: 1rem;
         color: #000000;
         background: rgba(255, 255, 255, 0.58);
@@ -126,27 +137,40 @@
 .mobile{
   display: none;
 }
+p{
+  max-height: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  span{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background: #333333;
+    top: 0;
+    padding: 0 .5vw;
+    border-radius: 16px 0 0;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    &:hover{
+      filter: brightness(2);
+    }
+  }
+}
+.showDesc{
+  max-height: unset;
+  overflow: auto;
+}
+.hide{
+  display: none;
+}
+
+
 @media (max-width: 768px) {
   .mobile{
     display: block;
-  }
-  p{
-    max-height: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    span{
-      position: absolute;
-      right: 5%;
-      top: 0;
-    }
-  }
-  .showDesc{
-    max-height: unset;
-    overflow: auto;
-  }
-  .hide{
-    display: none;
   }
 }
