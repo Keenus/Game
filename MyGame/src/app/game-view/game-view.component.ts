@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {UserServiceService} from "../../services/user-service.service";
+import {CharactersService} from "../services/characters-service/characters.service";
+import {ActionsService} from "../services/actions-service/actions.service";
 
 
 @Component({
@@ -9,42 +11,50 @@ import {UserServiceService} from "../../services/user-service.service";
 })
 export class GameViewComponent {
 
-  constructor(private UserService : UserServiceService) { }
 
-  menuItems = [
-    {name:'tavern', path: '/game/tavern'},
-    {name:'inventory', path: '/game/inventory'},
-    {name:'skills', path: '/game/skills'},
-    {name:'quests', path: '/game/quests'},
-    {name:'arena', path: '/game/arena'},
-    {name:'shop', path: '/game/shop'}
-  ]
+  constructor(
+    private userService : UserServiceService,
+    private charactersService: CharactersService,
+    private actionsService: ActionsService
+  ) { }
 
   isUserBusy: boolean = false;
+
+  menuItems = [
+    {name:'tavern', path: '/tavern'},
+    {name:'inventory', path: '/inventory'},
+    {name:'skills', path: '/skills'},
+    {name:'quests', path: '/quests'},
+    {name:'arena', path: '/arena'},
+    {name:'shop', path: '/shop'}
+  ]
+
+  characters: any[] = [];
+
   action= {
     name: 'none',
     time: 0,
     progress: 0
    }
 
-  loadUserAction() {
-    this.UserService.userStats
-      .subscribe((value) => {
-        console.log(value.action)
-        this.isUserBusy = value.action.isBusy
-        this.action = {
-          name: value.action.busyAction,
-          time: value.action.busyActionTime,
-          progress: value.action.busyActionProgress
-        }
-      });
-  }
+   checkBusy() {
+    this.userService.isUserBusy.subscribe((data: any) => {
+      this.isUserBusy = data;
+      console.log(this.isUserBusy)
+    })
+   }
+
 
   ngOnInit() {
-    this.loadUserAction();
+    this.userService.action.subscribe((data: any) => {
+      console.log(data)
+    })
+    this.userService.checkLastAction();
+    this.checkBusy();
+    this.charactersService.getCharacters()
+      .subscribe((data: any) => {
+        this.characters = data
+      })
     }
 
-  ngOnChanges() {
-    this.loadUserAction();
-  }
 }

@@ -7,21 +7,4 @@ import { Component } from '@angular/core';
 })
 export class MenuComponent {
 
-  menuImage = 'assets/images/home.png';
-
-  menuItems = [
-    {
-      name: 'Game',
-      path: 'game'
-    },
-    {
-      name: 'Character',
-      path: 'character'
-    },
-    {
-      name: 'Quests',
-      path: 'quests'
-    },
-  ];
-
 }

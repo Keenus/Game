@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { CardComponent } from './card/card.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,9 +28,11 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+    ],
     exports: [
         ProgressBarComponent
     ],

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ActionsService} from "../../services/actions-service/actions.service";
+import {UserServiceService} from "../../../services/user-service.service";
 
 @Component({
   selector: 'app-arena',
@@ -6,6 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./arena.component.scss']
 })
 export class ArenaComponent {
+
+  constructor(
+    private actionsService: ActionsService,
+    private userService: UserServiceService
+    ) { }
+
   choosenEnemy: any;
   opponentList = [
     {
@@ -75,10 +83,6 @@ export class ArenaComponent {
       }
   ]
 
-  NgOnInit() {
-    console.log(this.opponentList);
-  }
-
   getHighestStat(enemy:any) {
     let highestStat = 0;
     let highestStatName = '';
@@ -99,20 +103,23 @@ export class ArenaComponent {
     function keyValue(obj:any) {
         return Object.keys(obj).map((key) => obj[key]);
     }
-    console.log(enemy.stats);
-    console.log(keyValue(enemy.stats));
 
      keyValue(enemy.stats).forEach((stat:any) => {
-       console.log(stat)
         stats += stat * level;
      })
-    console.log(stats);
   }
 
-  startFight(enemy:any) {
-    this.choosenEnemy = enemy
-    console.log('start fight with: ' + this.choosenEnemy.name);
-    this.getOpponentStats(this.choosenEnemy)
-    this.getHighestStat(this.choosenEnemy)
+  startFight(enemy: any) {
+    let startDate = new Date();
+    let endDate = new Date();
+    endDate = new Date(endDate.setMinutes(endDate.getMinutes() + 1));
+    this.choosenEnemy = enemy;
+    this.actionsService.addAction({
+      name: 'start fight with: ' + this.choosenEnemy.name,
+      startDate: startDate,
+      endDate: endDate
+    }).subscribe(() => {
+      this.userService.checkLastAction();
+    });
   }
 }

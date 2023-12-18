@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from "rxjs";
+import {ActionsService} from "../app/services/actions-service/actions.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
 
-  constructor() { }
+  constructor(private actionsService:ActionsService) { }
 
   user = new BehaviorSubject(false);
   actionTime = new BehaviorSubject(0);
-  action = new BehaviorSubject('');
+  action = new BehaviorSubject({
+    action_id: 0,
+    action_name: '',
+    action_start_date: '',
+    action_end_date: '',
+  });
+
+  isUserBusy = new BehaviorSubject(false);
+  timeLeft = new BehaviorSubject(0);
+
 
   userStats = new BehaviorSubject({
     username : 'test',
@@ -39,8 +49,6 @@ export class UserServiceService {
     },
   })
 
-  //Level up
-
 
   checkIsUserLevelUp() {
     let stats = this.userStats.value;
@@ -62,26 +70,36 @@ export class UserServiceService {
     this.userStats.next(stats);
   }
 
-  //Action
-
-  clearAction() {
-    let stats = this.userStats.value;
-    stats.action.isBusy = false;
-    stats.action.busyAction = '';
-    stats.action.busyActionTime = 0;
-    stats.action.busyActionProgress = 0;
-    stats.action.busyActionTimeLeft = 0;
-    this.updateUserStats(stats);
+  checkLastAction() {
+   this.actionsService.getActions()
+      .subscribe((actions) => {
+        if (Array.isArray(actions)) {
+           let lastAction = actions[actions.length - 1];
+           this.action = lastAction
+           this.checkIsUserBusy(lastAction.action_end_date);
+           return this.action;
+        }
+        return this.action;
+      });
   }
 
-  startAction(action: string, time: number) {
-    let stats = this.userStats.value;
-    stats.action.isBusy = true;
-    stats.action.busyAction = action;
-    stats.action.busyActionTime = time;
-    stats.action.busyActionProgress = 0;
-    stats.action.busyActionTimeLeft = time;
-    this.updateUserStats(stats);
+  checkIsUserBusy(lastActionEndDate: any) {
+    let dateNow = new Date()
+    let lastActionDate = new Date(lastActionEndDate);
+    lastActionDate.setHours(lastActionDate.getHours() + 1);
+    console.log(lastActionDate, dateNow)
+    let timeLeft = lastActionDate.getTime() - dateNow.getTime();
+    this.timeLeft.next(timeLeft/1000);
+    if (lastActionDate > dateNow) {
+      this.isUserBusy.next(true);
+    } else {
+      this.isUserBusy.next(false);
+      return;
+    }
+  }
+
+  ngOnInit() {
+   this.checkLastAction();
   }
 
 }

@@ -17,6 +17,7 @@ export class AppComponent {
   loadUserAction() {
     this.UserService.userStats
       .subscribe((value) => {
+        console.log(value)
         this.isUserBusy = value.action.isBusy
       });
   }
