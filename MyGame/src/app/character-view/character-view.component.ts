@@ -13,7 +13,7 @@ export class CharacterViewComponent {
   heroes = [
     { name: 'Knight',
       img: 'woj.png',
-      selected: true,
+      selected: false,
       details: 'Knight is a character that is very strong and has a lot of health points. He is a good choice for beginners.',
       stats: {
         strength: 7,
@@ -66,7 +66,7 @@ export class CharacterViewComponent {
     },
   ];
 
-  HeroChoose = this.heroes[1];
+  HeroChoose: any;
 
   chooseHero(hero: any) {
 
@@ -75,7 +75,6 @@ export class CharacterViewComponent {
       hero.selected = false;
     });
     hero.selected = true;
-    console.log(this.HeroChoose)
   }
 
 

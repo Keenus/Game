@@ -20,6 +20,9 @@
     height: 100%;
     background: rgba(30, 24, 24, 0.8);
     .enemies {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
       overflow-y: scroll;
       border: 3px solid #fff;
       border-left: none;
@@ -64,11 +67,8 @@
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-
+          justify-content: flex-start;
           .stat {
-            display: flex;
-            flex-basis: 35%;
-
             span {
               margin: 0;
               padding: 0 5px;

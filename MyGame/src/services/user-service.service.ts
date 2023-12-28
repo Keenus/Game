@@ -76,7 +76,7 @@ export class UserServiceService {
         if (Array.isArray(actions)) {
            let lastAction = actions[actions.length - 1];
            this.action = lastAction
-           this.checkIsUserBusy(lastAction.action_end_date);
+           this.checkIsUserBusy(lastAction.action_end);
            return this.action;
         }
         return this.action;
@@ -87,7 +87,6 @@ export class UserServiceService {
     let dateNow = new Date()
     let lastActionDate = new Date(lastActionEndDate);
     lastActionDate.setHours(lastActionDate.getHours() + 1);
-    console.log(lastActionDate, dateNow)
     let timeLeft = lastActionDate.getTime() - dateNow.getTime();
     this.timeLeft.next(timeLeft/1000);
     if (lastActionDate > dateNow) {

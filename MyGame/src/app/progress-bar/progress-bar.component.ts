@@ -15,7 +15,6 @@ export class ProgressBarComponent {
 
   constructor(
     private userService: UserServiceService,
-    private actionsService: ActionsService
   ) {}
 
   questProgress = 0;
@@ -39,7 +38,9 @@ export class ProgressBarComponent {
       if (this.spentTime >= this.timeLeft) {
         this.questProgress = 100;
         this.spentTime = 0;
-        this.userService.isUserBusy.next(false);
+        setTimeout(() => {
+          this.userService.isUserBusy.next(false);
+        },500)
         clearInterval(this.questTimer);
         console.log('Quest completed');
       } else {
@@ -53,7 +54,6 @@ export class ProgressBarComponent {
     this.startQuest();
   }
   ngOnDestroy() {
-    this.userService.action.unsubscribe()
     clearInterval(this.questTimer);
   }
   ngOnChanges() {

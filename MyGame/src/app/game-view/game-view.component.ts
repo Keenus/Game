@@ -31,30 +31,15 @@ export class GameViewComponent {
 
   characters: any[] = [];
 
-  action= {
-    name: 'none',
-    time: 0,
-    progress: 0
-   }
-
    checkBusy() {
+    this.userService.checkLastAction();
     this.userService.isUserBusy.subscribe((data: any) => {
       this.isUserBusy = data;
-      console.log(this.isUserBusy)
     })
    }
 
-
   ngOnInit() {
-    this.userService.action.subscribe((data: any) => {
-      console.log(data)
-    })
-    this.userService.checkLastAction();
     this.checkBusy();
-    this.charactersService.getCharacters()
-      .subscribe((data: any) => {
-        this.characters = data
-      })
     }
 
 }

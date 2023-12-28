@@ -21,8 +21,6 @@ export class ArenaComponent {
       stats: {
         strength: 10,
         agility: 5,
-        intelligence: 5,
-        level: 1,
       },
       health: 100,
       reward: 10,
@@ -34,8 +32,6 @@ export class ArenaComponent {
       stats: {
         strength: 10,
         agility: 5,
-        intelligence: 5,
-        level: 1,
       },
       health: 100,
       maxHp: 150,
@@ -47,8 +43,6 @@ export class ArenaComponent {
       stats: {
         strength: 10,
         agility: 5,
-        intelligence: 5,
-        level: 1,
       },
       health: 100,
       maxHp: 200,
@@ -60,8 +54,6 @@ export class ArenaComponent {
       stats: {
         strength: 10,
         agility: 5,
-        intelligence: 5,
-        level: 1,
       },
       health: 100,
       maxHp: 250,
@@ -73,8 +65,6 @@ export class ArenaComponent {
       stats: {
         strength: 10,
         agility: 5,
-        intelligence: 5,
-        level: 1,
       },
       health: 100,
       maxHp: 300,
@@ -83,43 +73,22 @@ export class ArenaComponent {
       }
   ]
 
-  getHighestStat(enemy:any) {
-    let highestStat = 0;
-    let highestStatName = '';
-    Object.keys(enemy.stats).forEach((stat:any) => {
-      if (enemy.stats[stat] > highestStat) {
-        highestStat = enemy.stats[stat];
-        highestStatName = stat;
-      }
-    })
-    console.log(highestStatName,':',highestStat)
-    return highestStatName && highestStat;
-  }
-
-
-  getOpponentStats(enemy:any) {
-    let level = enemy.stats.level;
-    let stats = 0;
-    function keyValue(obj:any) {
-        return Object.keys(obj).map((key) => obj[key]);
-    }
-
-     keyValue(enemy.stats).forEach((stat:any) => {
-        stats += stat * level;
-     })
-  }
-
   startFight(enemy: any) {
     let startDate = new Date();
     let endDate = new Date();
     endDate = new Date(endDate.setMinutes(endDate.getMinutes() + 1));
     this.choosenEnemy = enemy;
     this.actionsService.addAction({
-      name: 'start fight with: ' + this.choosenEnemy.name,
-      startDate: startDate,
-      endDate: endDate
+      user_id: 1,
+      action_id: 1,
+      action_start: startDate,
+      action_end: endDate
     }).subscribe(() => {
       this.userService.checkLastAction();
+    },
+      error => {
+        console.log('error')
+        console.log(error)
     });
   }
 }

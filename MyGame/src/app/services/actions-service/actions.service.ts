@@ -8,7 +8,7 @@ export class ActionsService {
 
   constructor(private http: HttpService) { }
 
-  addAction(body: {name: string, startDate: any , endDate: any}) {
+  addAction(body: {user_id: number, action_id: number, action_start: any , action_end: any}) {
     return this.http.post('addUserActions', body)
   }
 

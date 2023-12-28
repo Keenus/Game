@@ -37,7 +37,7 @@ app.get('/characters', async (request, response) => {
 })
 
 app.get('/getUserActions', async (request, response) => {
-  pool.query("SELECT * FROM useractions", function (err, result, fields) {
+  pool.query("SELECT * FROM user_actions", function (err, result, fields) {
     if (err) throw err;
     response.send(result);
   });
@@ -47,13 +47,19 @@ app.get('/getUserActions', async (request, response) => {
 app.post('/addUserActions', async (request, response) => {
   console.log('Request body:', request.body);
 
+  // Check if dates are valid
+  const startDate = new Date(request.body.action_start);
+  const endDate = new Date(request.body.action_end);
+  console.log(startDate)
+  console.log(endDate)
+
   // Convert dates to UTC
-  const startDateUTC = new Date(request.body.startDate).toISOString().slice(0, 19).replace('T', ' ');
-  const endDateUTC = new Date(request.body.endDate).toISOString().slice(0, 19).replace('T', ' ');
+  const startDateUTC = startDate.toISOString().slice(0, 19).replace('T', ' ');
+  const endDateUTC = endDate.toISOString().slice(0, 19).replace('T', ' ');
 
   // Use prepared statement for safe queries
-  const query = 'INSERT INTO useractions VALUES (NULL, ?, ?, ?)';
-  const values = [request.body.name, startDateUTC, endDateUTC];
+  const query = 'INSERT INTO user_actions VALUES (NULL, ?, ?, ?, ?)';
+  const values = [request.body.user_id, request.body.action_id, startDateUTC, endDateUTC];
 
   pool.query(query, values, function (err, result) {
     if (err) {
