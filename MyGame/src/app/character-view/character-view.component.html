@@ -1,13 +1,13 @@
 <!--<app-hero-card [hero]="hero" (selected)="onSelected($event)"></app-hero-card>-->
 <div class="fade-background" [ngClass]="{'active': HeroChoose }">
-  <div class="characters-menu">
+  <div class="characters-menu" *ngIf="heroes.length > 0">
     <div class="character" (click)="chooseHero(hero)" *ngFor="let hero of heroes" (mousedown)="scrollSnap()">
-      <app-card [type]="'card'" [stats]="hero.stats" [img]="'/assets/characters/' + hero.img" [heroName]="hero.name" [heroDetails]="hero.details"></app-card>
+      <app-card [type]="'card'" [img]="'/assets/characters/' + hero.character_img" [heroName]="hero.character_name" [heroDetails]="hero.character_desc"></app-card>
     </div>
   </div>
 </div>
 
 <div class="hero-panel">
-  <app-card [type]="'panel'"  *ngIf="HeroChoose" [stats]="HeroChoose.stats" [img]="'/assets/characters/' + HeroChoose.img" [heroName]="HeroChoose.name" [heroDetails]="HeroChoose.details" ></app-card>
+  <app-card [type]="'panel'"  *ngIf="HeroChoose" [img]="'/assets/characters/' + HeroChoose.character_img" [heroName]="HeroChoose.character_name" [heroDetails]="HeroChoose.character_desc" ></app-card>
 </div>
 
